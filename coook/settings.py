@@ -13,7 +13,7 @@ SECRET_KEY = 'django-insecure-er-d@d97f680jkh_6pgoejn*+z#jo=a97%46fj=-mcs1olel@i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['https://cooook.herokuapp.com', 'cooook.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -63,10 +63,15 @@ WSGI_APPLICATION = 'coook.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd3ctqiqbkie8j4',
+        'HOST': 'ec2-54-74-60-70.eu-west-1.compute.amazonaws.com',
+        'PORT': 5432,
+        'USER': 'isqzhomgxuxvzb',
+        'PASSWORD': '5c80e5be6115448a4011d7e8f20af207e0a547055a606cc05822cf982ae672b7'
     }
 }
 
