@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+    <link rel="stylesheet" href="{% static 'css/hello.css' %}">
+</head>
+<body>
+<h1>FEEDPAGE ...</h1>
+{% for rec in data %}
+    <h1>{{ rec.title }}</h1>
+    <img src="{{ rec.image.url }}" alt="image" width="200px">
+{% endfor %}
+</body>
+</html>
