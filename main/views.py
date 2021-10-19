@@ -15,4 +15,5 @@ class FeedpageView(TemplateView):
 
 
 def hello(request):
+    # При обращении
     return HttpResponseRedirect('home')
