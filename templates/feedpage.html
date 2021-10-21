@@ -2,77 +2,114 @@
 {% block title %}
     <title>Feedpage</title>
 {% endblock title %}
-{% block header %}
-    {% include 'base_frames/header.html' %}
-{% endblock header %}
+{% block navbar %}
+
+    <div class="logo black-logo me-auto">
+        <h1><a href="{% url 'home' %}">Cook</a></h1>
+    </div>
+    <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+            <li class="black-nav-links"><a class="nav-link scrollto" href="{% url 'feed' %}">Feedpage</a></li>
+            <li class="dropdown black-nav-links"><a href="#"><span>Drop Down</span> <i
+                    class="bi bi-chevron-down"></i></a>
+                <ul>
+                    <li class="black-nav-links"><a href="#">Drop Down 1</a></li>
+                    <li class="dropdown black-nav-links"><a href="#"><span>Deep Drop Down</span> <i
+                            class="bi bi-chevron-right"></i></a>
+                        <ul>
+                            <li class="black-nav-links"><a href="#">Deep Drop Down 1</a></li>
+                            <li class="black-nav-links"><a href="#">Deep Drop Down 2</a></li>
+                            <li class="black-nav-links"><a href="#">Deep Drop Down 3</a></li>
+                            <li class="black-nav-links"><a href="#">Deep Drop Down 4</a></li>
+                            <li class="black-nav-links"><a href="#">Deep Drop Down 5</a></li>
+                        </ul>
+                    </li>
+                    <li class="black-nav-links"><a href="#">Drop Down 2</a></li>
+                    <li class="black-nav-links"><a href="#">Drop Down 3</a></li>
+                    <li class="black-nav-links"><a href="#">Drop Down 4</a></li>
+                </ul>
+            </li>
+            <li class="black-nav-links"><a class="nav-link scrollto" href="#">Login</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav>
+
+{% endblock navbar %}
 {% block content %}
     <section id="why-us" class="why-us">
         <div class="container">
 
             <div class="section-title">
                 <h2>Why choose <span>Our Restaurant</span></h2>
-                <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque
+                <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas
+                    atque
                     vitae autem.</p>
             </div>
 
             <div class="row">
+                {% for recipe in recipes %}
 
-                <div class="col-lg-4 mb-5">
-                    <div class="box">
-                        <span>01</span>
-                        <h4>Lorem Ipsum</h4>
-                        <p>Ulamco laboris nisi ut aliquip ex ea commodo consequat. Et consectetur ducimus vero
-                            placeat</p>
+                    <div class="col-lg-4 mb-5">
+                        <a href="http://127.0.0.1:8000/recipe/{{ recipe.slug }}/">
+                            <div class="box">
+                                <span>{{ recipe.title }}</span>
+                                <h4>Жасалу тәсілі</h4>
+                                <p>{{ recipe.cooking|safe|slice:70 }}...</p>
+                            </div>
+                        </a>
                     </div>
-                </div>
-
-                <div class="col-lg-4 mt-4 mt-lg-0 mb-5">
-                    <div class="box">
-                        <span>02</span>
-                        <h4>Repellat Nihil</h4>
-                        <p>Dolorem est fugiat occaecati voluptate velit esse. Dicta veritatis dolor quod et vel dire
-                            leno para dest</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 mt-4 mt-lg-0 mb-5">
-                    <div class="box">
-                        <span>03</span>
-                        <h4> Ad ad velit qui</h4>
-                        <p>Molestiae officiis omnis illo asperiores. Aut doloribus vitae sunt debitis quo vel nam
-                            quis</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 mt-4 mt-lg-0 mb-5">
-                    <div class="box">
-                        <span>03</span>
-                        <h4> Ad ad velit qui</h4>
-                        <p>Molestiae officiis omnis illo asperiores. Aut doloribus vitae sunt debitis quo vel nam
-                            quis</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 mt-4 mt-lg-0 mb-5">
-                    <div class="box">
-                        <span>03</span>
-                        <h4> Ad ad velit qui</h4>
-                        <p>Molestiae officiis omnis illo asperiores. Aut doloribus vitae sunt debitis quo vel nam
-                            quis</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 mt-4 mt-lg-0 mb-5">
-                    <div class="box">
-                        <span>03</span>
-                        <h4> Ad ad velit qui</h4>
-                        <p>Molestiae officiis omnis illo asperiores. Aut doloribus vitae sunt debitis quo vel nam
-                            quis</p>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
 
         </div>
     </section>
-    {% include 'base_frames/footer.html' %}
 {% endblock content %}
+{% block scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {#    <script>#}
+    {#        function morePosts() {#}
+    {#            let viewed_posts = $(".card").length;#}
+    {#            let data = {#}
+    {#                viewed_posts: viewed_posts#}
+    {#            };#}
+    {##}
+    {#            $.ajax({#}
+    {#                method: "GET",#}
+    {#                data: data,#}
+    {#                url: {% url 'ajax-loading-posts' %},#}
+    {#                type: 'json',#}
+    {#                success: function (data) {#}
+    {#                    let result = data['data'];#}
+    {#                    if (result == null) {#}
+    {#                        confirm("Smth went wrong with request, are you sure that you authenticated?");#}
+    {#                    }#}
+    {#                    $.each(result, function (key, obj) {#}
+    {#                        render(obj);#}
+    {#                    });#}
+    {#                },#}
+    {#            })#}
+    {#        }#}
+    {#    </script>#}
+    {#    <script>#}
+    {#        window.onload = function () {#}
+    {#            morePosts();#}
+    {#            newpostButton()#}
+    {#        };#}
+    {#    </script>#}
+    {#    <script>#}
+    {#        function newpostButton() {#}
+    {#            $('.navbar-nav').prepend(#}
+    {#                `<li class="nav-item my-auto">#}
+    {#                        <a class="btn-outline-light btn btn-sm" href="{% url 'add-post' %}">New Post</a>#}
+    {#                    </li>`#}
+    {#            )#}
+    {#        }#}
+    {#    </script>#}
+    {#    <script>#}
+    {#        function render(obj) {#}
+    {#            $('.posts').append(#}
+    {#                ``#}
+    {#            );#}
+    {#        }#}
+    {#    </script>#}
+{% endblock scripts %}

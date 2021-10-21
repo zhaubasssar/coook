@@ -1,0 +1,106 @@
+{% extends 'base_frames/base.html' %}
+{% load static %}
+{% block title %}
+    <title>{{ recipe.title }}</title>
+{% endblock title %}
+{% block navbar %}
+
+    <div class="logo black-logo me-auto">
+        <h1><a href="{% url 'home' %}">Cook</a></h1>
+    </div>
+    <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+            <li class="black-nav-links"><a class="nav-link scrollto" href="{% url 'feed' %}">Feedpage</a></li>
+            <li class="dropdown black-nav-links"><a href="#"><span>Drop Down</span> <i
+                    class="bi bi-chevron-down"></i></a>
+                <ul>
+                    <li class="black-nav-links"><a href="#">Drop Down 1</a></li>
+                    <li class="dropdown black-nav-links"><a href="#"><span>Deep Drop Down</span> <i
+                            class="bi bi-chevron-right"></i></a>
+                        <ul>
+                            <li class="black-nav-links"><a href="#">Deep Drop Down 1</a></li>
+                            <li class="black-nav-links"><a href="#">Deep Drop Down 2</a></li>
+                            <li class="black-nav-links"><a href="#">Deep Drop Down 3</a></li>
+                            <li class="black-nav-links"><a href="#">Deep Drop Down 4</a></li>
+                            <li class="black-nav-links"><a href="#">Deep Drop Down 5</a></li>
+                        </ul>
+                    </li>
+                    <li class="black-nav-links"><a href="#">Drop Down 2</a></li>
+                    <li class="black-nav-links"><a href="#">Drop Down 3</a></li>
+                    <li class="black-nav-links"><a href="#">Drop Down 4</a></li>
+                </ul>
+            </li>
+            <li class="black-nav-links"><a class="nav-link scrollto" href="#">Login</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle mobile-nav-toggle-black"></i>
+    </nav>
+
+{% endblock navbar %}
+
+{% block content %}
+    <section id="about" class="about">
+        <div class="container-fluid mt-2">
+            <div class="row">
+                <div class="align-items-stretch video-box"
+                     style="background-image: url({% static 'images/about.jpg' %});">
+                    <a href="https://www.youtube.com/watch?v=joSUTiA5BiE&t=5s" class="venobox play-btn mb-4"
+                       data-vbtype="video" data-autoplay="true"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="specials" class="specials">
+        <div class="container">
+
+            <div class="section-title">
+                <h2 style="text-transform: capitalize;"><span>{{ recipe.slug }}</span> чеееек</h2>
+                <p>Бір текст жазылуы тиіс еді, бірақ әзірше идея жоқ. Бірдеңке-бірдеңке бірбәле-бірбәле
+                    андай-сондай-мынадай-осындай</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3">
+                    <ul class="nav nav-tabs flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-bs-toggle="tab" href="#tab-1">Ингридиенты</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link show" data-bs-toggle="tab" href="#tab-2">Приготовление</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-9 mt-4 mt-lg-0">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab-1">
+                            <div class="row">
+                                <div class="col-lg-8 details order-2 order-lg-1">
+                                    <h3 style="text-transform: capitalize;">{{ recipe.slug }}</h3>
+                                    <p class="fst-italic">Бір текст жазылуы тиіс еді, бірақ әзірше идея жоқ. Бірдеңке-бірдеңке бірбәле-бірбәле
+                    андай-сондай-мынадай-осындай</p>
+                                    <p>{{ recipe.ingridients|safe }}</p>
+                                </div>
+                                <div class="col-lg-4 text-center order-1 order-lg-2">
+                                    <img src="" alt="" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane show" id="tab-2">
+                            <div class="row">
+                                <div class="col-lg-8 details order-2 order-lg-1">
+                                    <h3 style="text-transform: capitalize;">{{ recipe.slug }}</h3>
+                                    <p class="fst-italic">Бір текст жазылуы тиіс еді, бірақ әзірше идея жоқ. Бірдеңке-бірдеңке бірбәле-бірбәле
+                    андай-сондай-мынадай-осындай</p>
+                                    <p>{{ recipe.cooking|safe }}</p>
+                                </div>
+                                <div class="col-lg-4 text-center order-1 order-lg-2">
+                                    <img src="" alt="" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+{% endblock content %}

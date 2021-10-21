@@ -35,17 +35,22 @@
 <body>
 
 <!-- ======= Header ======= -->
-{% block header %}
+<header id="header" class="fixed-top d-flex align-items-center header-transparent">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-{% endblock header %}
+        {% block navbar %}
 
+        {% endblock navbar %}
+
+    </div>
+</header>
 <!-- ======= Main Content ======= -->
 {% block content %}
 
 {% endblock content %}
-
-{% block scripts %}
-{% endblock scripts %}
+{% block footer %}
+    {% include 'base_frames/footer.html' %}
+{% endblock footer %}
 
 <!-- Vendor JS Files -->
 <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
@@ -57,5 +62,7 @@
 <!-- Main JS File -->
 <script src="{% static 'js/main.js' %}"></script>
 
+{% block scripts %}
+{% endblock scripts %}
 </body>
 </html>

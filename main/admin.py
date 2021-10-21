@@ -1,7 +1,8 @@
 from django.contrib import admin
-from main.models import Recipe
+from main import models
 
 
-@admin.register(Recipe)
+@admin.register(models.Recipe)
 class RecipeAdmin(admin.ModelAdmin):
     list_display = ('title', 'created_at')
+    prepopulated_fields = {'slug': ('title',)}
