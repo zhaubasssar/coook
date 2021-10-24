@@ -29,7 +29,11 @@
                     <li class="black-nav-links"><a href="#">Drop Down 4</a></li>
                 </ul>
             </li>
-            <li class="black-nav-links"><a class="nav-link scrollto" href="#">Login</a></li>
+            {% if user.is_authenticated %}
+                <li><a class="nav-link scrollto" href="{% url 'home' %}">{{ user.username }}</a></li>
+            {% else %}
+                <li><a class="nav-link scrollto" href="{% url 'login' %}">Login</a></li>
+            {% endif %}
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
     </nav>

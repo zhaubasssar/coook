@@ -30,7 +30,11 @@
                     <li class="black-nav-links"><a href="#">Drop Down 4</a></li>
                 </ul>
             </li>
-            <li class="black-nav-links"><a class="nav-link scrollto" href="#">Login</a></li>
+            {% if user.is_authenticated %}
+                <li><a class="nav-link scrollto" href="{% url 'home' %}">{{ user.username }}</a></li>
+            {% else %}
+                <li><a class="nav-link scrollto" href="{% url 'login' %}">Login</a></li>
+            {% endif %}
         </ul>
         <i class="bi bi-list mobile-nav-toggle mobile-nav-toggle-black"></i>
     </nav>
@@ -75,8 +79,9 @@
                             <div class="row">
                                 <div class="col-lg-8 details order-2 order-lg-1">
                                     <h3 style="text-transform: capitalize;">{{ recipe.slug }}</h3>
-                                    <p class="fst-italic">Бір текст жазылуы тиіс еді, бірақ әзірше идея жоқ. Бірдеңке-бірдеңке бірбәле-бірбәле
-                    андай-сондай-мынадай-осындай</p>
+                                    <p class="fst-italic">Бір текст жазылуы тиіс еді, бірақ әзірше идея жоқ.
+                                        Бірдеңке-бірдеңке бірбәле-бірбәле
+                                        андай-сондай-мынадай-осындай</p>
                                     <p>{{ recipe.ingridients|safe }}</p>
                                 </div>
                                 <div class="col-lg-4 text-center order-1 order-lg-2">
@@ -88,8 +93,9 @@
                             <div class="row">
                                 <div class="col-lg-8 details order-2 order-lg-1">
                                     <h3 style="text-transform: capitalize;">{{ recipe.slug }}</h3>
-                                    <p class="fst-italic">Бір текст жазылуы тиіс еді, бірақ әзірше идея жоқ. Бірдеңке-бірдеңке бірбәле-бірбәле
-                    андай-сондай-мынадай-осындай</p>
+                                    <p class="fst-italic">Бір текст жазылуы тиіс еді, бірақ әзірше идея жоқ.
+                                        Бірдеңке-бірдеңке бірбәле-бірбәле
+                                        андай-сондай-мынадай-осындай</p>
                                     <p>{{ recipe.cooking|safe }}</p>
                                 </div>
                                 <div class="col-lg-4 text-center order-1 order-lg-2">
