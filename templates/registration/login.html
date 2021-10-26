@@ -1,31 +1,35 @@
 {% extends 'base_frames/base.html' %}
+{% block title %}
+    <title>Login</title>
+{% endblock title %}
 {% block content %}
-    <section id="book-a-table" class="book-a-table">
+    <section class="book-a-table">
         <div class="container">
+            <div class="login-form col-4-lg">
 
-            <div class="section-title">
-                <h2>Текст <span>бірбәле</span></h2>
-                <p>Жеке парақшаңыз жоқпа? Онда <a href="{% url 'sign_up' %}"><span>тіркеліңіз</span></a></p>
-            </div>
-
-            <form action="" method="post" class="login-form col-5-lg">
-                {% csrf_token %}
-                {% for field in form %}
-                    {{ field }}
-                    <br>
-                {% endfor %}
-                <input class="" type="submit" value="Login">
-
-                <div>
-                    <div class="text-center col-lg-6 col-md-6 form-group">
-                        {#                        <input type="text" name="username" maxlength="150" autofocus="" class="form-control" placeholder="Username" required="" id="id_username">#}
-                        {#                        <br>#}
-                        {#                        <input type="password" name="password1" autocomplete="new-password" placeholder="Password" class="form-control" required="" id="id_password1">#}
-                        {#                        <br>#}
-                    </div>
+                <div class="section-title">
+                    <h2>Текст <span>бірбәле</span></h2>
+                    <p>Жеке парақшаңыз жоқпа? Онда <a href="{% url 'sign_up' %}"><span>тіркеліңіз</span></a></p>
                 </div>
+                <form action="" method="post" role="form" class=" ">
+                    {% csrf_token %}
+                    <div>
 
-            </form>
+                        <div class="text-center col-lg-6 col-md-6 form-group mx-auto">
+                            <input type="text" name="username" maxlength="150" autofocus="" class="form-control"
+                                   placeholder="Username" required="" id="id_username">
+                            <br>
+                            <input type="password" name="password" autocomplete="new-password" placeholder="Password"
+                                   class="form-control" required="" id="id_password1">
+                            <br>
+                            <input class="" type="submit" value="Login">
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
+
     </section>
 {% endblock content %}
+{% block footer %}
+{% endblock footer %}

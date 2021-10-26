@@ -1,27 +1,31 @@
 {% extends 'base_frames/base.html' %}
 {% block content %}
-    <section id="book-a-table" class="book-a-table">
+    <section class="book-a-table">
         <div class="container">
-
-            <div class="section-title">
-                <h2 style="font-family: 'Satisfy', sans-serif">Тіркелу<span></span></h2>
-                <p>Жеке парақшаңыз бар? Онда <a href="{% url 'login' %}"><span style="text-transform: uppercase">как на казахском авторизуйтесь будет</span></a></p>
-            </div>
-
-            <form action="" method="post" role="form" class="login-form col-5-lg">
-                {% csrf_token %}
-                <div>
-                    <div class="text-center col-lg-6 col-md-6 form-group">
-                        {{ form.username }}
-                        <br>
-                        {{ form.password1 }}
-                        <br>
-                        {{ form.password2 }}
-                        <br>
-                        <input class="" type="submit" value="Sign up">
+            <div class="login-form col-4-lg">
+                <form action="" method="post" role="form" class="">
+                    <div class="section-title">
+                        <h2 style="font-family: 'Satisfy', sans-serif">Тіркелу<span></span></h2>
+                        <p>Жеке парақшаңыз бар? Онда <a href="{% url 'login' %}"><span
+                                style="text-transform: uppercase">как на казахском авторизуйтесь будет</span></a>
+                        </p>
                     </div>
-                </div>
-            </form>
+                    {% csrf_token %}
+                    <div>
+                        <div class="text-center col-lg-6 col-md-6 form-group mx-auto">
+                            {{ form.username }}
+                            <br>
+                            {{ form.password1 }}
+                            <br>
+                            {{ form.password2 }}
+                            <br>
+                            <input class="" type="submit" value="Sign up">
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </section>
 {% endblock content %}
+{% block footer %}
+{% endblock footer %}

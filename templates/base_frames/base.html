@@ -39,9 +39,32 @@
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
         {% block navbar %}
-
         {% endblock navbar %}
+        {% block navbar_black %}
+            <div class="logo black-logo me-auto">
+                <h1><a href="{% url 'home' %}">Cook</a></h1>
+            </div>
+            <nav id="navbar" class="navbar order-last order-lg-0">
+                <ul>
+                    <li class="black-nav-links"><a class="nav-link scrollto" href="{% url 'feed' %}">Feedpage</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                        <li class="dropdown black-nav-links"><a
+                                href="{% url 'home' %}"><span>{{ user.username }}</span> <i
+                                class="bi bi-chevron-down"></i></a>
+                            <ul>
+                                <li class="black-nav-links"><a href="{% url 'home' %}">{{ user.username }}</a></li>
+                                <li class="black-nav-links"><a href="{% url 'logout' %}">Logout</a></li>
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li class="black-nav-links"><a href="{% url 'login' %}">Login</a></li>
+                    {% endif %}
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
 
+            </nav>
+        {% endblock navbar_black %}
     </div>
 </header>
 <!-- ======= Main Content ======= -->
