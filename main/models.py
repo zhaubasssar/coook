@@ -14,3 +14,4 @@ class Recipe(models.Model):
                                         default="images/posts/default-post-image.png")
     created_at          = models.DateTimeField(auto_now_add=True, editable=False)
     likes               = models.ManyToManyField(User, blank=True, related_name='Likes')
+
