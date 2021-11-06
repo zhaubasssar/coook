@@ -6,6 +6,7 @@ User = get_user_model()
 
 
 class Recipe(models.Model):
+    checked             = models.BooleanField(default=False)
     title               = models.CharField(max_length=255)
     slug                = models.SlugField(unique=True, verbose_name='URL', null=True)
     cooking             = RichTextField(blank=True, null=True)

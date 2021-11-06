@@ -1,0 +1,42 @@
+{% extends 'base_frames/base.html' %}
+{% load static %}
+{% block content %}
+
+    <section id="why-us" class="why-us">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Why choose <span>Our Restaurant</span></h2>
+                <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas
+                    atque
+                    vitae autem.</p>
+            </div>
+
+            <form action="" method="post" class="form-group">
+            </form>
+        </div>
+    </section>
+
+    <section class="book-a-table">
+        <div class="container">
+            <div class="col-4-lg">
+                <form action="" method="post" role="form" class="">
+                    {% csrf_token %}
+                    <div>
+                        <div class="ol-lg-6 col-md-6 form-group mx-auto">
+                            {% csrf_token %}
+                            {{ form.title }}
+                            <label for="ingridients" class="mb-3">Ingridients</label>
+                            {{ form.ingridients }}
+                            <label for="cooking" class="mb-3 mt-3">Cooking</label>
+                            {{ form.cooking }}
+                            <br>
+                            {{ form.image }}
+                            <input type="submit" value="post recipe">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

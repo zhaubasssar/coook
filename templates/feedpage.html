@@ -12,10 +12,8 @@
                     atque
                     vitae autem.</p>
             </div>
-
             <div class="row">
                 {% for recipe in recipe_list %}
-
                     <div class="col-lg-4 mb-5">
                         <a href="https://cooook.herokuapp.com/recipe/{{ recipe.slug }}/">
                             <div class="box">
@@ -33,50 +31,4 @@
 {% endblock content %}
 {% block scripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    {#    <script>#}
-    {#        function morePosts() {#}
-    {#            let viewed_posts = $(".card").length;#}
-    {#            let data = {#}
-    {#                viewed_posts: viewed_posts#}
-    {#            };#}
-    {##}
-    {#            $.ajax({#}
-    {#                method: "GET",#}
-    {#                data: data,#}
-    {#                url: {% url 'ajax-loading-posts' %},#}
-    {#                type: 'json',#}
-    {#                success: function (data) {#}
-    {#                    let result = data['data'];#}
-    {#                    if (result == null) {#}
-    {#                        confirm("Smth went wrong with request, are you sure that you authenticated?");#}
-    {#                    }#}
-    {#                    $.each(result, function (key, obj) {#}
-    {#                        render(obj);#}
-    {#                    });#}
-    {#                },#}
-    {#            })#}
-    {#        }#}
-    {#    </script>#}
-    {#    <script>#}
-    {#        window.onload = function () {#}
-    {#            morePosts();#}
-    {#            newpostButton()#}
-    {#        };#}
-    {#    </script>#}
-    {#    <script>#}
-    {#        function newpostButton() {#}
-    {#            $('.navbar-nav').prepend(#}
-    {#                `<li class="nav-item my-auto">#}
-    {#                        <a class="btn-outline-light btn btn-sm" href="{% url 'add-post' %}">New Post</a>#}
-    {#                    </li>`#}
-    {#            )#}
-    {#        }#}
-    {#    </script>#}
-    {#    <script>#}
-    {#        function render(obj) {#}
-    {#            $('.posts').append(#}
-    {#                ``#}
-    {#            );#}
-    {#        }#}
-    {#    </script>#}
 {% endblock scripts %}
