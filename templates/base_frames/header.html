@@ -6,10 +6,10 @@
     <ul>
         <li><a class="nav-link scrollto" href="{% url 'feed' %}">Feedpage</a></li>
         {% if user.is_authenticated %}
-            <li class="dropdown"><a href="{% url 'feed' %}"><span>Recipes</span><i
+            <li class="dropdown"><a href="{% url 'my-receipts' %}"><span>Recipes</span><i
                     class="bi bi-chevron-down"></i></a>
                 <ul>
-                    <li class=""><a href="{% url 'feed' %}">Recipes</a></li>
+                    <li class=""><a href="{% url 'my-receipts' %}">My recipes</a></li>
                     <li class=""><a href="{% url 'new-recipe' %}"><span>New recipe</span></a>
                 </ul>
             </li>

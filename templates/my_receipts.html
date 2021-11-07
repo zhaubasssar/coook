@@ -1,0 +1,34 @@
+{% extends 'base_frames/base.html' %}
+{% block title %}
+    <title>{{ user.username }}'s receipts</title>
+{% endblock title %}
+{% block content %}
+    <section id="why-us" class="why-us">
+        <div class="container">
+
+            <div class="section-title">
+                <h2><span>{{ user.username }}'s</span> receipts</h2>
+                <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas
+                    atque
+                    vitae autem.</p>
+            </div>
+            <div class="row">
+                {% for recipe in recipe_list %}
+                    <div class="col-lg-4 mb-5">
+                        <a href="https://cooook.herokuapp.com/recipe/{{ recipe.slug }}/">
+                            <div class="box">
+                                <span>{{ recipe.title }}</span>
+                                <h4>Жасалу тәсілі</h4>
+                                <p>{{ recipe.cooking|safe|slice:70 }}...</p>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </section>
+{% endblock content %}
+{% block scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{% endblock scripts %}

@@ -37,6 +37,16 @@ class FeedpageView(LoginRequiredMixin, ListView):
         return render(request, self.template_name, {'recipe_list': recipe_list})
 
 
+class MyReceiptsView(LoginRequiredMixin, ListView):
+    model = Recipe
+    login_url = reverse_lazy('login')
+    template_name = "my_receipts.html"
+
+    def get(self, request, *args, **kwargs):
+        recipe_list = self.model.objects.filter(checked=True, author=request.user)
+        return render(request, self.template_name, {'recipe_list': recipe_list})
+
+
 class RecipeArticle( LoginRequiredMixin, DetailView):
     model = Recipe
     login_url = reverse_lazy('login')

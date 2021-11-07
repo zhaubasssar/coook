@@ -8,11 +8,11 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+
 body {
     font-family: "Poppins", sans-serif;
     color: #444444;
 }
-
 a {
     text-decoration: none;
     color: #ffb03b;
@@ -1200,4 +1200,12 @@ section {
 
 #footer .credits {
     font-size: 13px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+.content {
+    flex-grow: 1;
 }
