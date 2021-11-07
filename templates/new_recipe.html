@@ -19,20 +19,36 @@
 
     <section class="book-a-table">
         <div class="container">
-            <div class="col-4-lg">
+            <div class="recipe-form col-4-lg">
                 <form action="" method="post" role="form" class="">
                     {% csrf_token %}
-                    <div>
-                        <div class="ol-lg-6 col-md-6 form-group mx-auto">
+                    <div class="form-group">
+                        <div class="text-center">
                             {% csrf_token %}
+                            {{ form.media }}
+                            <br>
+                            <h1 class="text-center"><span>Recipe</span></h1>
+                            <br>
                             {{ form.title }}
-                            <label for="ingridients" class="mb-3">Ingridients</label>
+                            <hr>
+                            <br>
+                            <div class="label-container text-start">
+                            <h2><span><label for="ingridients" class="mb-3">Ingridients</label></span></h2>
+                            </div>
                             {{ form.ingridients }}
-                            <label for="cooking" class="mb-3 mt-3">Cooking</label>
+                            <br>
+                            <div class="label-container text-start">
+                            <h2><span><label for="cooking" class="mb-3 mt-3">Cooking</label></span></h2>
+                            </div>
                             {{ form.cooking }}
                             <br>
-                            {{ form.image }}
-                            <input type="submit" value="post recipe">
+                            <br>
+                            <div class="input-group">
+                                {{ form.image }}
+                            </div>
+                            <br>
+                            <input type="submit" value="Post recipe">
+                            <br>
                         </div>
                     </div>
                 </form>

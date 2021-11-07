@@ -1079,6 +1079,16 @@ section {
     margin: 0 auto;
     background: #fff;
 }
+.recipe-form {
+    box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+    padding: 30px;
+    margin: 0 auto;
+    background: #fff;
+    width: 70%;
+}
+.recipe-form h1 {
+    color: #ffb03b;;
+}
 
 .login-form .form-group {
     padding-bottom: 8px;
@@ -1106,7 +1116,7 @@ section {
 }
 
 
-.login-form input {
+.login-form input, .recipe-form input {
     margin: 0 auto;
     float: none;
     border-radius: 0;
@@ -1115,7 +1125,7 @@ section {
     height: 44px;
 }
 
-.login-form input[type=submit] {
+.login-form input[type=submit], .recipe-form input[type=submit] {
     background: #ffb03b;
     border: 0;
     padding: 10px 24px;
@@ -1124,12 +1134,12 @@ section {
     border-radius: 50px;
 }
 
-.login-form button[type=submit]:hover {
+.login-form button[type=submit]:hover, .recipe-form input[type=submit] {
     background: #ffa012;
 }
 
 @media (max-width: 992px) {
-    .login-form {
+    .login-form, .recipe-form {
         width: 100%;
     }
 }
