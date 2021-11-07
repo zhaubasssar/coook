@@ -24,7 +24,7 @@ class CreateRecipe(CreateView):
     model = Recipe
     template_name = "new_recipe.html"
     form_class = RecipeForm
-    success_url = reverse_lazy('feed')
+    success_url = reverse_lazy('my-receipts')
 
     def form_valid(self, form):
         instance = form.save(commit=False)
@@ -49,7 +49,7 @@ class MyReceiptsView(LoginRequiredMixin, ListView):
     template_name = "my_receipts.html"
 
     def get(self, request, *args, **kwargs):
-        recipe_list = self.model.objects.filter(checked=True, author=request.user)
+        recipe_list = self.model.objects.filter(author=request.user)
         return render(request, self.template_name, {'recipe_list': recipe_list})
 
 
