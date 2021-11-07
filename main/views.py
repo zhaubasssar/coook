@@ -26,6 +26,12 @@ class CreateRecipe(CreateView):
     form_class = RecipeForm
     success_url = reverse_lazy('feed')
 
+    def form_valid(self, form):
+        instance = form.save(commit=False)
+        instance.author = self.request.user
+        instance.save()
+        return HttpResponseRedirect(self.success_url)
+
 
 class FeedpageView(LoginRequiredMixin, ListView):
     model = Recipe
